@@ -21,12 +21,28 @@ module.exports = function(grunt){
         // location of result file
         dest: 'cssmin/all.min.css'
       }
+    },
+    uglify: {
+      options: {
+        banner: '/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> */\n'
+      },
+      build: {
+        src: 'jsmin/<%= pkg.name %>.min.js',
+        dest: 'jsmin/<%= pkg.name %>.min.js'
+      }
     }
   });
 
   // load contrib task files
   // note: these should be installed from npm
   grunt.loadNpmTasks('grunt-contrib-concat');
+  grunt.loadNpmTasks('grunt-contrib-uglify');
+
+  // a custom task
+  // no configuration for this task, it just logs stuff
+  grunt.registerTask('default', 'Log stuff.', function() {
+      grunt.log.write('I am a custom task...').ok();
+    });
   // register what to do when using the default 'grunt' command
-  grunt.registerTask('default', ['concat']);
+  grunt.registerTask('default', ['concat', 'uglify']);
 };
