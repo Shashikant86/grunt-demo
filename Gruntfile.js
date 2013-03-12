@@ -6,13 +6,20 @@ module.exports = function(grunt){
     concat: {
       options: {
         // string to put between concatenated files
-        separator: ';'
+        // can be necessary when processing minified js code
+        //separator: ';'
       },
-      dist: {
+      js: {
         // files to concat together
         src: ['js/*.js'],
         // location of result file
-        dest: 'jsmin/<%= pkg.name %>.js'
+        dest: 'jsmin/<%= pkg.name %>.min.js'
+      },
+      css: {
+        // files to concat together
+        src: ['css/*.css'],
+        // location of result file
+        dest: 'cssmin/all.min.css'
       }
     }
   });
