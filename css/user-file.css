@@ -2,4 +2,6 @@
 body{
   max-width:600px;
   margin:0 auto;
+  color: #444;
+  font-family: Georgia, Palatino, 'Palatino Linotype', Times, 'Times New Roman', "Hiragino Sans GB", "STXihei", "微软雅黑", serif;
 }
